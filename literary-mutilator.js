@@ -44,3 +44,34 @@ function findandReplace() {
 	let newText = string.replace(reg, replaceValue);
 document.getElementById("input").innerHTML = newText;
 }
+
+/**
+ *rot 13
+ */
+
+function rot13() {
+	let alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+
+	let text = ["N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m"];
+
+	let text = document.getElementById("rot13").textContent;
+
+	let rot13Text = "";
+
+	for(let i = 0; i < text.length; i++) {
+
+		for(let j = 0; j < alphabet.length; j++) {
+
+			if(text[i] === alphabet[j]) {
+
+				rot13Text = rot13Text + alphabetRot13[j];
+			}
+		}
+
+		if(text[i] === "") {
+			rot13Text = rot13Text + " ";
+		}
+	}
+
+	document.getElementById("rot13").textContent = rot13Text;
+}
